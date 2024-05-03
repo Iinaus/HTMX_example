@@ -7,56 +7,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>HTMX</title>
 </head>
-<body class="bg-blue-500">
-    <form class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
-      <h1 class="text-2xl font-bold mb-4 text-center">Contact Us</h1>
-      <div class="mb-4" hx-target="this" hx-swap="outerHTML">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email"
-          >Email Address</label
-        >
-        <input
-          name="email"
-          hx-post="/contact/email"
-          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
-          type="email"
-          id="email"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label
-          class="block text-gray-700 text-sm font-bold mb-2"
-          for="firstName"
-          >First Name</label
-        >
-        <input
-          type="text"
-          name="firstName"
-          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
-          id="firstName"
-          required
-        />
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName"
-          >Last Name</label
-        >
-        <input
-          type="text"
-          name="lastName"
-          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
-          id="lastName"
-          required
-        />
-      </div>
-      <div class="flex items-center justify-between">
-        <button
-          class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-          type="submit"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
-  </body>
+<body class="bg-blue-500 p-10">
+  <h1 class="text-3xl font-bold mb-5 text-white">HTMX examples from tutorial</h1>
+  <ul class="link-list p-5">
+    <li class="link-item">
+      <a href="/polling.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">Example of polling (making a request every x seconds) using a mock weather API</a>
+    </li>
+    <li class="link-item">
+      <a href="/search.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">A contact search widget</a>
+    </li>
+    <li class="link-item">
+      <a href="/searchFromApi.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">A contact search widget connected to JSONPlaceholder API</a>
+    </li>
+    <li class="link-item">
+      <a href="/temperature.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">Simple temperature converter</a>
+    </li>
+    <li class="link-item">
+      <a href="/users.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">Simple example of how to trigger events, make requests, set targets, etc.</a>
+    </li>
+    <li class="link-item">
+      <a href="/validation.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">Inline validation example</a>
+    </li>
+  </ul>
+  <h1 class="text-3xl font-bold mb-5 text-white">HTMX examples that I made myself from scratch</h1>
+  <ul class="link-list p-5">
+    <li class="link-item">
+      <a href="/index.html" class="block py-2 px-4 bg-white text-blue-500 rounded-md hover:bg-blue-100">Coming soon</a>
+    </li>
+  </ul>
+  <div class="mt-10 text-center">
+    <a href="https://github.com/Iinaus/HTMX_example" class="text-white hover:underline">View the project on GitHub</a>
+  </div>
+</body>
 </html>
