@@ -20,7 +20,7 @@ The tutorial covers various examples:
 - `validation.html`: Inline validation example
 
 Additionally, I've independently added the following examples:
-- `test.html`: Coming soon
+- `weather.html`: Search weather by city from OpenWeather API
 
 ## Getting started
 
@@ -33,6 +33,7 @@ This project relies on the following dependencies:
 - **Node.js**: A JavaScript runtime environment required to execute the server-side code.
 - **express**: To handle HTTP requests and routes.
 - **nodemon**: Utility that automatically restarts the server when changes are detected in the code.
+- **dotenv**: To handle environment variables.
 
 Ensure that you have Node.js installed on your system before running this project. You can download and install Node.js from [here](https://nodejs.org/). Make sure to install other dependencies before running the project to ensure smooth execution.
 
@@ -41,3 +42,5 @@ Ensure that you have Node.js installed on your system before running this projec
 1. Install dependencies with command `npm install`
 2. Run the project with command `npm run dev`
 3. Visit the html page at [http://localhost:3000/](http://localhost:3000/) to navigate further
+4. The weather.html uses OpenWeather API to fetch weather data. To use the API you need to create an account and get API KEY.
+5. Create .env in project root and add API KEY to the file `API_KEY=XXXXXXXXXXXX`

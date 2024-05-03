@@ -1,10 +1,13 @@
 import express from 'express';
+import dotenv from 'dotenv';
 
 const app = express()
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+dotenv.config()
 
 
 // Handle GET request to fetch users
@@ -178,6 +181,47 @@ app.post("/contact/email", (req, res) => {
         )
     }
 
+})
+
+//Handle POST request for weather search from OpenWeather API
+app.post("/weather", async (req, res) => {
+    try {
+        const API_KEY = process.env.API_KEY;
+        const city = req.body.city.toLowerCase();
+        const formattedCity = city.charAt(0).toUpperCase() + city.slice(1);
+
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+        const data = await response.json();
+
+        const description = data.weather[0].description
+        const { temp, temp_min, temp_max } = data.main
+
+        res.send(`
+            <div class="cardContainer">
+                <div class="card">
+                    <p class="city">${formattedCity}</p>
+                    <p class="weather">${description}</p>    
+                    <p class="temp">${temp}°</p>
+                    <div class="minmaxContainer">
+                        <div class="min">
+                            <p class="minHeading">Min</p>
+                            <p class="minTemp">${temp_min}°</p>
+                        </div>
+                        <div class="max">
+                            <p class="maxHeading">Max</p>
+                            <p class="maxTemp">${temp_max}°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+    } catch (error) {
+        res.send(`
+            <div class="errorContainer bg-red-500 text-white px-4 py-2 rounded-md">
+                <p class="error">City not found</p>
+            </div>
+        `)
+    }
 })
 
 app.listen(3000, () => {
