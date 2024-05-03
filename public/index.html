@@ -7,23 +7,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>HTMX</title>
 </head>
-<body>
-    <div class="text-center">
-        <h1 class="text-2xl font-bold my-5">
-            Simple Request Example
-        </h1>
-        <button 
-            hx-get="/users"
-            hx-target="#users"
-            hx-indicator="#loading"
-            hx-vals='{"limit": 5}'
-            class="bg-blue-500 text-white py-2 px-3 my-5-rounded-lg">
-            Fetch Users
+<body class="bg-blue-500">
+    <form class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg mt-6">
+      <h1 class="text-2xl font-bold mb-4 text-center">Contact Us</h1>
+      <div class="mb-4" hx-target="this" hx-swap="outerHTML">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="email"
+          >Email Address</label
+        >
+        <input
+          name="email"
+          hx-post="/contact/email"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          type="email"
+          id="email"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label
+          class="block text-gray-700 text-sm font-bold mb-2"
+          for="firstName"
+          >First Name</label
+        >
+        <input
+          type="text"
+          name="firstName"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          id="firstName"
+          required
+        />
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          name="lastName"
+          class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:border-blue-500"
+          id="lastName"
+          required
+        />
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          type="submit"
+        >
+          Submit
         </button>
-        <span class="htmx-indicator" id="loading">
-            <img src="img/loader.gif" alt="Loading..." class="m-auto h-10">
-        </span>
-        <div id="users"></div>
-    </div>   
-</body>
+      </div>
+    </form>
+  </body>
 </html>

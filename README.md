@@ -10,9 +10,6 @@ This project relies on the following dependencies:
 
 - **nodeJS**
 - **express**: To handle HTTP requests and routes.
-```bash
-npm install express --save
-```
 - **nodemon**
 
 Make sure to install these dependencies before running the project to ensure smooth execution.
