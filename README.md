@@ -26,7 +26,7 @@ Additionally, I've independently added the following examples:
 
 Instructions on how to set up the project.
 
-## Dependencies
+### Dependencies
 
 This project relies on the following dependencies:
 
